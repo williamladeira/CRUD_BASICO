@@ -41,6 +41,8 @@ namespace CRUD_Basico
         private void carregaDgvalunos()
         {
             Dgvaluno.Rows.Clear();
+            //ordesando a lista de alunos pelo nome 
+            _aluno = _aluno.OrderBy(a => a.Nome).ToList();
 
             foreach (Aluno aluno in _aluno)
             {
@@ -53,13 +55,6 @@ namespace CRUD_Basico
 
 
 
-
-        private void BtnCadastrar_Click(object sender, EventArgs e)
-        {
-           
-
-       
-        }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
@@ -142,7 +137,7 @@ namespace CRUD_Basico
             {
                 TsbNovo.Enabled = true;
                 Tsbsalvar.Enabled = true;
-                TsbExcluir.Enabled = false;
+                TsbExcluir.Enabled = true;
                 TsbEditar.Enabled = false;
 
                 Txbnome.Enabled = true;
@@ -184,6 +179,9 @@ namespace CRUD_Basico
                     Aluno novoAluno = new Aluno(Txbnome.Text, DtpDtnascimento.Value, CkbAtivo.Checked);
 
                     novoAluno.Cadastrar();
+                    _aluno.Add(novoAluno);
+                    carregaDgvalunos();
+                    configurabotoesecampos(1);
                     MessageBox.Show($"Aluno cadastrado com sucesso:\n {novoAluno.Nome}\nid inserido pelo banco:{novoAluno.Id}");
                 }
                 catch (Exception ex)
@@ -194,8 +192,51 @@ namespace CRUD_Basico
             }
             else
             {
-                        
+                _aluno.Remove(_alunoselecionado);
+
+
+
+                _alunoselecionado.Nome = Txbnome.Text;
+                _alunoselecionado.DtNascimento = DtpDtnascimento.Value;
+                _alunoselecionado.Ativo = CkbAtivo.Checked;
+                try
+                {
+                    string retornoBD = _alunoselecionado.atualizar();
+                    _aluno.Add(_alunoselecionado);
+                    carregaDgvalunos();
+                    configurabotoesecampos(1);
+                    MessageBox.Show(retornoBD);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+               
             }
+        }
+
+        private void TsbExcluir_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                //remover o aluno selecionado do branco e o retorno da frase sendo armazenado 
+                string retornoBD = _alunoselecionado.excluir();
+                //remover o aluno de lista de memoria
+                _aluno.Remove(_alunoselecionado);
+                carregaDgvalunos();
+                configurabotoesecampos(1);
+                MessageBox.Show(retornoBD);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -68,6 +68,63 @@ namespace CRUD_Basico.Classes
             
         }
 
+        public string atualizar() 
+        {
+            try
+            {
+                string nomeprocedure = "SP_Atualizaraluno";
+
+                List<SqlParameter> parametros = new List<SqlParameter>
+                {
+                    new SqlParameter("nome",Nome),
+                    new SqlParameter("Dtnascimento", DtNascimento),
+                    new SqlParameter("ativo",Ativo),
+                    new SqlParameter("id", Id)
+                };
+                DataSet ds = Consultar(nomeprocedure, parametros);
+                if (ds!= null && ds.Tables!=null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    return ds.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                   throw new Exception("nao houve retorno do banco");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        
+        
+        }
+
+        public string excluir()
+        {
+            try
+            {
+                string nomeprocedure = "SP_Excluiraluno";
+                List<SqlParameter> parametros = new List<SqlParameter>
+                {
+                    new SqlParameter ("id", Id)
+                };
+                DataSet ds = Consultar(nomeprocedure, parametros);
+                if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    return ds.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    throw new Exception("nao houve retorno do banco");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public List<Aluno>obterAlunos()
         {

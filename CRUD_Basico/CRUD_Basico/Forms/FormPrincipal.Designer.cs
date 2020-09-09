@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Dgvaluno = new System.Windows.Forms.DataGridView();
-            this.BtnCadastrar = new System.Windows.Forms.Button();
             this.CkbAtivo = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DtpDtnascimento = new System.Windows.Forms.DateTimePicker();
@@ -56,7 +55,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.Dgvaluno);
-            this.groupBox1.Controls.Add(this.BtnCadastrar);
             this.groupBox1.Controls.Add(this.CkbAtivo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.DtpDtnascimento);
@@ -65,7 +63,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 481);
+            this.groupBox1.Size = new System.Drawing.Size(449, 460);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Aluno";
@@ -79,25 +77,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgvaluno.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgvaluno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgvaluno.Location = new System.Drawing.Point(29, 250);
+            this.Dgvaluno.Location = new System.Drawing.Point(23, 212);
             this.Dgvaluno.MultiSelect = false;
             this.Dgvaluno.Name = "Dgvaluno";
             this.Dgvaluno.ReadOnly = true;
             this.Dgvaluno.RowHeadersVisible = false;
             this.Dgvaluno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgvaluno.Size = new System.Drawing.Size(383, 228);
+            this.Dgvaluno.Size = new System.Drawing.Size(389, 207);
             this.Dgvaluno.TabIndex = 7;
             this.Dgvaluno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgvaluno_CellClick);
-            // 
-            // BtnCadastrar
-            // 
-            this.BtnCadastrar.Location = new System.Drawing.Point(129, 208);
-            this.BtnCadastrar.Name = "BtnCadastrar";
-            this.BtnCadastrar.Size = new System.Drawing.Size(171, 36);
-            this.BtnCadastrar.TabIndex = 6;
-            this.BtnCadastrar.Text = "Cadastrar";
-            this.BtnCadastrar.UseVisualStyleBackColor = true;
-            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
             // CkbAtivo
             // 
@@ -215,13 +203,14 @@
             this.TsbExcluir.Name = "TsbExcluir";
             this.TsbExcluir.Size = new System.Drawing.Size(59, 25);
             this.TsbExcluir.Text = "Excluir";
+            this.TsbExcluir.Click += new System.EventHandler(this.TsbExcluir_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(467, 518);
+            this.ClientSize = new System.Drawing.Size(467, 497);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormPrincipal";
@@ -241,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button BtnCadastrar;
         private System.Windows.Forms.CheckBox CkbAtivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DtpDtnascimento;

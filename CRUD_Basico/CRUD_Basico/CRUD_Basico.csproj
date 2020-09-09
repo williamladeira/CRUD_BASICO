@@ -83,8 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Procedures\SP_excluir.sql" />
     <Content Include="Procedures\SP_inseraluno.sql" />
     <Content Include="Procedures\SP_obterAlunos.sql" />
+    <Content Include="Procedures\SP_Atualizaalunos.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
