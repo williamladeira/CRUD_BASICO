@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>new_add_insert_file_13948.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -83,10 +86,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="new_add_insert_file_13948.ico" />
     <Content Include="Procedures\SP_excluir.sql" />
     <Content Include="Procedures\SP_inseraluno.sql" />
     <Content Include="Procedures\SP_obterAlunos.sql" />
     <Content Include="Procedures\SP_Atualizaalunos.sql" />
+    <Content Include="Screenshot_1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
